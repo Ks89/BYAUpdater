@@ -98,7 +98,7 @@ public class UpdaterBya {
 						//						Object o = c.newInstance();
 						//						c.getMethod("avviaDaUpdater").invoke(o);
 
-						String [] rigaComando = {"java","-jar",percorsoEsecuzioneJar +  "/BYAManager.jar"};
+						String [] rigaComando = {"java","-jar",percorsoEsecuzioneJar.replace(" ", "\\ ") +  System.getProperty("file.separator") + "BYAManager.jar"};
 						Runtime.getRuntime().exec(rigaComando);
 						System.exit(0);
 

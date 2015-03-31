@@ -95,13 +95,13 @@ public final class User extends Os {
 	 */
 	private String generaNomeJarEsecuzione() {
 		ClassLoader loader = User.class.getClassLoader();
-		String nomeJar = loader.getResource("model/User.class").toString();
+		String nomeJar = loader.getResource("logica/User.class").toString();
 		if(nomeJar.startsWith("jar:")) {
-			nomeJar = nomeJar.replace("!/model/User.class", "");
+			nomeJar = nomeJar.replace("!/logica/User.class", "");
 			nomeJar = nomeJar.substring(nomeJar.lastIndexOf('/') + 1, nomeJar.length());
 			nomeJar = nomeJar.replaceAll("%20", " ");
 		} else {
-			nomeJar = "BYAManager.jar";
+			nomeJar = "BYAUpdater.jar";
 		}
 		return nomeJar;
 	}

@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>it.ks89</groupId>
-	<artifactId>ByaUpdater</artifactId>
+	<artifactId>BYAUpdater</artifactId>
 	<name>ks89</name>
-	<version>1.0.0</version>
+	<version>0.6.0</version>
  
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
