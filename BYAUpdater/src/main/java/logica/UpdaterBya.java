@@ -30,28 +30,45 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-public class UpdaterBya {
+import logger.LoggerManager;
 
-	public static void aggiorna(final String nomeJarPrincipale) {
+import org.apache.log4j.Logger;
+
+public class UpdaterBya {
+	private static final Logger LOGGER = Logger.getLogger(UpdaterBya.class);
+
+	static {
+		//carico la configurazione del logger che varra' per tutto il programma
+		//senza doverlo fare ogni volta
+		new LoggerManager();
+	}
+	
+	public static void aggiorna(final String nomeJarPrincipale, final String folderByaUpdater) {
+		LOGGER.info("update - with parameters: " + nomeJarPrincipale + ", " + folderByaUpdater);
+		
 		User.getInstance();
-		final String percorsoEsecuzioneJar = User.getInstance().getJarPath();
+		//non serve aggiungere ad inizio e fine le virgolette, tanto le ricevo gia' come parametro da byamanager
+		final String percorsoEsecuzioneJar = folderByaUpdater; //lo so assegnamento inutile, ma fa niente
+		
 		final JFrame frame = new JFrame();
 		frame.setLayout(new GridLayout(2,1));
-		frame.setTitle("BYAUpdater 1.0.0 - by Stefano Cappa");
+		frame.setTitle("BYAUpdater 1.0.1 - by Ks89");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.add(new JLabel("Welcome in BYAUpdater 1.0.0 - by Stefano Cappa"));
+		frame.add(new JLabel("Created by Stefano Cappa"));
 		JButton aggiorna = new JButton("Update BYAManager");
 		frame.add(aggiorna);
 		aggiorna.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
-				System.out.println(percorsoEsecuzioneJar); 
+				System.out.println("percorsoEsecuzioneJar: " + percorsoEsecuzioneJar); 
 				boolean stato = false;
 				File[] listaFile = (new File(percorsoEsecuzioneJar)).listFiles();
 
 				//cerco il file con la nuova versione del programma
 				for(int i=0;i<listaFile.length;i++) {
+					System.out.println("ListaFile indice: " + i + ", name= " + listaFile[i].getName()); 
 					if(listaFile[i].getName().contains("-new.j_a_r")) {
 						stato = true;
+						System.out.println("stato is now " + stato); 
 					}
 				}
 
@@ -93,15 +110,13 @@ public class UpdaterBya {
 
 
 					try {
-						//						ClassLoader cl = new URLClassLoader(new URL[] {new URL("file://" + percorsoEsecuzioneJar + "/bya.jar")});
-						//						Class c = cl.loadClass("logica.Main");
-						//						Object o = c.newInstance();
-						//						c.getMethod("avviaDaUpdater").invoke(o);
-
-						String [] rigaComando = {"java","-jar",percorsoEsecuzioneJar.replace(" ", "\\ ") +  System.getProperty("file.separator") + "BYAManager.jar"};
-						Runtime.getRuntime().exec(rigaComando);
-						System.exit(0);
-
+						LOGGER.info("rigaComando : " + "java -jar " + percorsoEsecuzioneJar +  System.getProperty("file.separator") + "BYAManager.jar");
+						
+						String [] rigaComando = {"java","-jar", percorsoEsecuzioneJar +  System.getProperty("file.separator") + "BYAManager.jar"};
+						ProcessBuilder pb = new ProcessBuilder(rigaComando);
+						pb.start();
+						
+						Runtime.getRuntime().exit(0);
 					} catch (MalformedURLException e) {
 						e.printStackTrace();
 					} catch (IllegalArgumentException e) {
@@ -134,13 +149,17 @@ public class UpdaterBya {
 			System.setProperty("com.apple.mrj.application.apple.menu.about.name", "BYAUpdater");
 		}
 		
+		LOGGER.info("BYAUpdater started");
+		
 		if(args.length>=1) {
-			System.out.println(args[0]);
-			aggiorna(args[0]); //passo come argomento il nome del jar che ha lanciato l'updater
+			LOGGER.info("firstParam: " + args[0]);
+			LOGGER.info("secondParam: " + args[1]);
+			
+			aggiorna(args[0],args[1]); //passo come argomento il nome del jar che ha lanciato l'updater e il percorso in cui ha scaricato il BYAUpdater
 		} else {
 			JOptionPane.showMessageDialog(null, "Updater puo' essere eseguito solo da BYAManager.\n" +
 					"In caso di vera necessita' contatta Stefano Cappa per ottenere supporto");
-			System.exit(0);
+			Runtime.getRuntime().exit(0);
 		}
 	}
 
