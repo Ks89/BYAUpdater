@@ -15,15 +15,21 @@
 		<!-- </Filters> -->
 		<!-- </File> -->
 
-		<File name="BYAUpdater-complete-log" fileName="BYAUpdater.log">
-			<PatternLayout pattern="%d %p %c{1.} [%t] %m%n" />
+		<!-- Per mostrare il log anche nella console, mentre sviluppi e non solo 
+			nel file -->
+		<Console name="STDOUT" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) - %m%n" />
+		</Console>
+
+		<File name="TEMP" fileName="BYAUpdater.log">
+			<PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) - %m%n" />
 		</File>
 
 	</Appenders>
 	<Loggers>
 		<Root level="all">
-			<AppenderRef ref="BYAUpdater-complete-log" />
-			<!-- <AppenderRef ref="Simple" /> -->
+			<AppenderRef ref="STDOUT" />
+			<AppenderRef ref="TEMP" />
 		</Root>
 	</Loggers>
 </Configuration>
