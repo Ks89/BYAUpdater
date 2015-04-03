@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<!-- Puo' essere utile per avere due log, uno semplifii -->
+		<!-- <File name="Simple" fileName="app/${date:yyyy-MM-dd HHmmss}/BYAManager_simple.log"> -->
+		<!-- <PatternLayout pattern="%d %p %c{1.} [%t] %m%n" /> -->
+		<!-- <Filters> -->
+		<!-- <ThresholdFilter level="fatal" onMatch="DENY" onMismatch="NEUTRAL" 
+			/> -->
+		<!-- <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="NEUTRAL" 
+			/> -->
+		<!-- <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL" 
+			/> -->
+		<!-- <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY" /> -->
+		<!-- </Filters> -->
+		<!-- </File> -->
+
+		<File name="BYAUpdater-complete-log" fileName="BYAUpdater.log">
+			<PatternLayout pattern="%d %p %c{1.} [%t] %m%n" />
+		</File>
+
+	</Appenders>
+	<Loggers>
+		<Root level="all">
+			<AppenderRef ref="BYAUpdater-complete-log" />
+			<!-- <AppenderRef ref="Simple" /> -->
+		</Root>
+	</Loggers>
+</Configuration>

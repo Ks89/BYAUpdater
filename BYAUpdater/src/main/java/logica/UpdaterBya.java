@@ -30,18 +30,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import logger.LoggerManager;
-
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 public class UpdaterBya {
-	private static final Logger LOGGER = Logger.getLogger(UpdaterBya.class);
-
-	static {
-		//carico la configurazione del logger che varra' per tutto il programma
-		//senza doverlo fare ogni volta
-		new LoggerManager();
-	}
+	private static final Logger LOGGER = LogManager.getLogger(UpdaterBya.class);
 	
 	public static void aggiorna(final String nomeJarPrincipale, final String folderByaUpdater) {
 		LOGGER.info("update - with parameters: " + nomeJarPrincipale + ", " + folderByaUpdater);
@@ -52,7 +45,7 @@ public class UpdaterBya {
 		
 		final JFrame frame = new JFrame();
 		frame.setLayout(new GridLayout(2,1));
-		frame.setTitle("BYAUpdater 1.0.1 - by Ks89");
+		frame.setTitle("BYAUpdater 1.1 - by Ks89");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(new JLabel("Created by Stefano Cappa"));
 		JButton aggiorna = new JButton("Update BYAManager");
