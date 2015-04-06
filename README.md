@@ -1,10 +1,15 @@
 # BYAUpdater
-A software to auto-update BYAManager. <br>
-BYAUpdater can't work alone. You need to use BYAManager and this software, only to update the first one
+
+**A software to auto-update BYAManager**. <br>
+This is a small software to update and relunch "BYAManager.jar", the executable of BYAManager. The logic in this software is very simple, but extremely useful.
+<br><br>
+BYAUpdater can't work alone. You need to use BYAManager with this software. Obviously, you can update BYAManager with BYAUpdater only if a new version is available.
+
 
 ## Informations
 
 ## News
+
 
 ## Features
 You can:<br/>
