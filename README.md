@@ -22,9 +22,7 @@ Official blog: [HERE](http://ks89-jailbreak.blogspot.it/)
 - This software updates BYAManager, replacing the old "BYAManager.jar" with the new one.
 
 ## Images
-<br>
 Obviously, the first screenshot is the splash screen of BYAManager, not this software ;)
-<br>
 <br>
 
 ![alt tag](http://www.stefanocappa.it/publicfiles/Github_repositories_images/BYAUpdater/1-byamanager-updating.png)
