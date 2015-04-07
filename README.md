@@ -20,6 +20,7 @@ Official blog: [HERE](http://ks89-jailbreak.blogspot.it/)
 
 ## Features
 - This software updates BYAManager, replacing the old "BYAManager.jar" with the new one.
+- This is an Eclipse project created with Maven.
 
 ## Images
 Obviously, the first screenshot is the splash screen of BYAManager, not this software ;)
@@ -42,6 +43,7 @@ There are two ways to use this software:
 ```java
     $ java -jar BYAUpdater.jar BYAManager.jar <folder of BYAUpdater.jar>
 ```
+
 
 
 ## License
