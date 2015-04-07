@@ -19,7 +19,11 @@ Official blog: [HERE](http://ks89-jailbreak.blogspot.it/)
 - *08/04/2011* - **BYAUpdater alpha 4**
 
 ## Features
-- This software updates BYAManager
+- This software updates BYAManager, replacing the old "BYAManager.jar" with the new one.
+
+## Images
+
+####
 
 ## Usage
 You can't execute BYAUpdater with a "double-click" on the ".jar". 
@@ -29,8 +33,6 @@ There are two ways to use this software:
 ```java
     $ java -jar BYAUpdater.jar BYAManager.jar <folder of BYAUpdater.jar>
 ```
-
-### General usage
 
 
 ## License
