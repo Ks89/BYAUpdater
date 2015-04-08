@@ -23,8 +23,10 @@ import java.nio.file.Paths;
 
 import javax.swing.JOptionPane;
 
+import lombok.Getter;
+
 /**
- *	Classe che gestisce i percorsi del sistema operativo.
+ *	Class that manage all OS path
  */
 public final class User extends Os {
 
@@ -32,24 +34,21 @@ public final class User extends Os {
 
 	private String homePath;
 
-	private Path dataPath;
-	private Path downloadPath;
-	private Path downloadTempPath;
-	private String jarPath;
-	private String jarName;
+	@Getter private Path dataPath;
+	@Getter private Path downloadPath;
+	@Getter private Path downloadTempPath;
+	@Getter private String jarPath;
+	@Getter private String jarName;
 
 	/**
-	 * Metodo che permette di ottenere l'istanza della classe.
-	 * @return istanza della classe PercorsiOS.
+	 * Method to obtain the instance of this class.
+	 * @return instance of this class
 	 */
 	public static User getInstance() {
 		return instance;
 	}
 
 
-	/**
-	 * Costruttore privato della class percorsiOS. Genera i percorsi e crea le cartelle.
-	 */
 	private User() {
 		homePath = System.getProperty("user.home");
 
@@ -63,8 +62,7 @@ public final class User extends Os {
 	}
 
 	/**
-	 * Metodo per creare le cartelle che fanno parte dei 
-	 * percorsi DownloadTemp e Dati.
+	 * Method to create folders
 	 */
 	private void createFolders() {
 		try {
@@ -77,45 +75,47 @@ public final class User extends Os {
 	}
 
 	/**
-	 * Metodo per generare i percorsi di dati, impostazioni, download, downloadTemp ed esecuzioneJar.
+	 * Method to generate paths
 	 */
 	private void createPaths() {
 		jarPath = (new File("")).getAbsolutePath();
-		jarName = generaNomeJarEsecuzione();
+		jarName = generateExecutionJarName();
 		dataPath = Paths.get(homePath,"Library","ByaManager");
 		downloadPath = Paths.get(homePath, "Downloads", "ByaManager_Downloads");
 		downloadTempPath = Paths.get(downloadPath.toString(), "temp");
 	}
 
 	/**
-	 * Metodo per ottenere il nome del file jar in esecuzione. Utile per esempio, per essere passato all'updater
-	 * durante l'aggiornamento. In questo modo l'updater saprebbe esattamente il nome del file da rimuovere.
-	 * Attenzione, nel caso in cui il programma non sia eseguito da un jar restituisce sempre "BYAManager.jar".
-	 * @return Il nome del file Jar in esecuzione.
+	 * Method to obtain the execution jar file name. <br></br>
+	 * This name is useful, because the updater can get the jar file name during the update procedure.<br></br>
+	 * BYAUpdater knows which is the jar file name to remove, while updating.<br></br>
+	 * Attention, if you run BYAUpdater from Eclipse, and not from the .jar, this method returns "BYAManager.jar".<br></br>
+	 * @return A String that represents the execution jar file name.<br></br>
 	 */
-	private String generaNomeJarEsecuzione() {
+	private String generateExecutionJarName() {
 		ClassLoader loader = User.class.getClassLoader();
-		String nomeJar = loader.getResource("logica/User.class").toString();
-		if(nomeJar.startsWith("jar:")) {
-			nomeJar = nomeJar.replace("!/logica/User.class", "");
-			nomeJar = nomeJar.substring(nomeJar.lastIndexOf('/') + 1, nomeJar.length());
-			nomeJar = nomeJar.replaceAll("%20", " ");
+		String jarName = loader.getResource("logic/User.class").toString();
+		if(jarName.startsWith("jar:")) {
+			jarName = jarName.replace("!/logic/User.class", "");
+			jarName = jarName.substring(jarName.lastIndexOf('/') + 1, jarName.length());
+			jarName = jarName.replaceAll("%20", " ");
 		} else {
-			nomeJar = "BYAUpdater.jar";
+			jarName = "BYAUpdater.jar";
 		}
-		return nomeJar;
+		return jarName;
 	}
 
 	/**
-	 * Metodo che fornisce il percorso predefinito in cui iTunes scarica i file ipsw. 
-	 * Vale solo su mac e windows, poiche' itunes non c'e' per linux. Quindi se l'os e' linux restituisce null.
-	 * Si occupa anche di creare il percorso nel caso non esistesse.
-	 * @param device Stringa rappresentante il dispositivo
-	 * @return
-	 * @throws IOException 
+	 * Method to get the default folder where iTunes downloads firmwares.<br></br>
+	 * Only for mac and windows, because iTunes isn't supported by Linux.<br></br>
+	 * If this path doesn't exist, this method creates the path.<br></br>
+	 * @param device String that represents the device.
+	 * @return Path Path that represents the default folder where iTunes downloads firmwares.
+	 * @throws IOException If the current OS is Linux.
 	 */
 	public Path getItunesIpswPath(String device) throws IOException {
-		String reducedDevice = device.split(" ")[0]; //fa si che il nome sia composto solo da iphone, ipad ecc.. senza la versione dopo
+		//I'm using split, because i want to get the name (for example iphone, ipad, without the version.
+		String reducedDevice = device.split(" ")[0]; 
 		if(super.getOsName().contains("Mac")) {
 			Path path = Paths.get(homePath, "Library", "iTunes", reducedDevice + " Software Updates");
 			Files.createDirectories(path);
@@ -126,43 +126,7 @@ public final class User extends Os {
 			Files.createDirectories(path);
 			return path;
 		}
-		//se e' linux non da nessun percorso perche' su linux non si puo' installare itunes
+		//if is Linux (an operative system not supporte by iTunes) throw an execption
 		throw new IOException();
-	}
-
-	/**
-	 * Ottiene il percorso di esecuzione del jar.
-	 * @return String che rappresenta il percorso d'esecuzione jar.
-	 */
-	public String getJarPath() {
-		return jarPath;
-	}
-
-	/**
-	 * Ottiene il percorso dati.
-	 * @return String che rappresenta il percorso dati.
-	 */
-	public Path getDataPath() {
-		return dataPath;
-	}
-
-	/**
-	 * Ottiene percorso download file temporanei.
-	 * @return String che rappresenta il percorso downloadTemp.
-	 */
-	public Path getDownloadTempPath() {
-		return downloadTempPath;
-	}
-
-	/**
-	 * Ottiene percorso download.
-	 * @return String che rappresenta il percorso download.
-	 */
-	public Path getDownloadPath() {
-		return downloadPath;
-	}
-
-	public String getJarName() {
-		return jarName;
 	}
 }
