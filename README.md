@@ -1,7 +1,7 @@
 # BYAUpdater
 
 **A software to auto-update [BYAManager](https://github.com/Ks89/BYAManager)**. <br>
-This is a small software to update and relunch "BYAManager.jar", the executable of BYAManager. The logic in this software is very simple, but extremely useful.b
+This is a small software to update and relunch "BYAManager.jar", the executable of BYAManager. The logic in this software is very simple, but extremely useful.
 <br><br>
 BYAUpdater can't work alone. You need to use [BYAManager](https://github.com/Ks89/BYAManager) with this software. Obviously, you can update [BYAManager](https://github.com/Ks89/BYAManager) with BYAUpdater only if a new version is available.
 
