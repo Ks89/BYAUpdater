@@ -15,7 +15,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-package logic;
+package it.stefanocappa;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -41,7 +41,7 @@ public class UpdaterBya {
 		final JFrame frame = new JFrame();
 		JButton aggiorna = new JButton("Update BYAManager");
 		frame.setLayout(new GridLayout(2,1));
-		frame.setTitle("BYAUpdater 1.1 - by Stefano Cappa");
+		frame.setTitle("BYAUpdater 1.3 - by Stefano Cappa");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(new JLabel("  Created by Stefano Cappa  "));
 		frame.add(aggiorna);

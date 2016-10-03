@@ -13,7 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-package logic;
+package it.stefanocappa;
 
 import java.io.File;
 import java.io.IOException;
@@ -94,9 +94,9 @@ public final class User extends Os {
 	 */
 	private String generateExecutionJarName() {
 		ClassLoader loader = User.class.getClassLoader();
-		String jarName = loader.getResource("logic/User.class").toString();
+		String jarName = loader.getResource("it/stefanocappa/User.class").toString();
 		if(jarName.startsWith("jar:")) {
-			jarName = jarName.replace("!/logic/User.class", "");
+			jarName = jarName.replace("!/it/stefanocappa/User.class", "");
 			jarName = jarName.substring(jarName.lastIndexOf('/') + 1, jarName.length());
 			jarName = jarName.replaceAll("%20", " ");
 		} else {
