@@ -95,6 +95,7 @@ public final class User extends Os {
 	private String generateExecutionJarName() {
 		ClassLoader loader = User.class.getClassLoader();
 		String jarName = loader.getResource("it/stefanocappa/User.class").toString();
+		System.out.println(jarName);
 		if(jarName.startsWith("jar:")) {
 			jarName = jarName.replace("!/it/stefanocappa/User.class", "");
 			jarName = jarName.substring(jarName.lastIndexOf('/') + 1, jarName.length());
