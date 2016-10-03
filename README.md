@@ -1,15 +1,16 @@
 # BYAUpdater
 
-**A software to auto-update BYAManager**. <br>
+**A software to auto-update [BYAManager](https://github.com/Ks89/BYAManager)**. <br>
 This is a small software to update and relunch "BYAManager.jar", the executable of BYAManager. The logic in this software is very simple, but extremely useful.
 <br><br>
-BYAUpdater can't work alone. You need to use BYAManager with this software. Obviously, you can update BYAManager with BYAUpdater only if a new version is available.
+BYAUpdater can't work alone. You need to use [BYAManager](https://github.com/Ks89/BYAManager) with this software. Obviously, you can update [BYAManager](https://github.com/Ks89/BYAManager) with BYAUpdater only if a new version is available.
 
 
 ## Informations
 Official blog: [HERE](http://ks89-jailbreak.blogspot.it/)
 
 ## News
+- *04/08/2015* - **BYAUpdater 1.2.0** [DOWNLOAD HERE](https://github.com/Ks89/BYAUpdater/releases/tag/v1.2.0)
 - *04/03/2015* - **BYAUpdater 1.1.0** [DOWNLOAD HERE](https://github.com/Ks89/BYAUpdater/releases/tag/v.1.1.0)
 - *04/02/2015* - **BYAUpdater 1.0.1** [DOWNLOAD HERE](https://github.com/Ks89/BYAUpdater/releases/tag/v.1.0.1)
 - *03/31/2015* - **BYAUpdater 1.0.0** [DOWNLOAD HERE](https://github.com/Ks89/BYAUpdater/releases/tag/v.1.0.0)
@@ -19,11 +20,11 @@ Official blog: [HERE](http://ks89-jailbreak.blogspot.it/)
 - *08/04/2011* - **BYAUpdater alpha 4**
 
 ## Features
-- This software updates BYAManager, replacing the old "BYAManager.jar" with the new one.
+- This software updates [BYAManager](https://github.com/Ks89/BYAManager), replacing the old "BYAManager.jar" with the new one.
 - This is an Eclipse project created with Maven.
 
 ## Images
-Obviously, the first screenshot is the splash screen of BYAManager, not this software ;)
+Obviously, the first screenshot is the splash screen of [BYAManager](https://github.com/Ks89/BYAManager), not this software ;)
 <br>
 
 ![alt tag](http://www.stefanocappa.it/publicfiles/Github_repositories_images/BYAUpdater/1-byamanager-updating.png)
@@ -38,7 +39,7 @@ Obviously, the first screenshot is the splash screen of BYAManager, not this sof
 ## Usage
 You can't execute BYAUpdater with a "double-click" on the ".jar". 
 There are two ways to use this software:
-- Automatic: BYAManager calls BYAUpdater automatically without user intervention;
+- Automatic: [BYAManager](https://github.com/Ks89/BYAManager) calls BYAUpdater automatically without user intervention;
 - Command Line Interface: You can start BYAUpdater with: 
 ```java
     $ java -jar BYAUpdater.jar BYAManager.jar <folder of BYAUpdater.jar>
