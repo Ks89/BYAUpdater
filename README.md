@@ -10,6 +10,7 @@ BYAUpdater can't work alone. You need to use [BYAManager](https://github.com/Ks8
 Official blog: [HERE](http://ks89-jailbreak.blogspot.it/)
 
 ## News
+- *10/02/2016* - **BYAUpdater 1.3.0** [DOWNLOAD HERE](https://github.com/Ks89/BYAUpdater/releases/tag/v1.3.0)
 - *04/08/2015* - **BYAUpdater 1.2.0** [DOWNLOAD HERE](https://github.com/Ks89/BYAUpdater/releases/tag/v1.2.0)
 - *04/03/2015* - **BYAUpdater 1.1.0** [DOWNLOAD HERE](https://github.com/Ks89/BYAUpdater/releases/tag/v.1.1.0)
 - *04/02/2015* - **BYAUpdater 1.0.1** [DOWNLOAD HERE](https://github.com/Ks89/BYAUpdater/releases/tag/v.1.0.1)
